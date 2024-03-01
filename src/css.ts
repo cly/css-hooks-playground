@@ -1,8 +1,20 @@
 import { createHooks } from "@css-hooks/react";
 
-export const { styleSheet, css } = createHooks({
-  hooks: {
-    "&:active": "&:active",
+export const [hooks, css] = createHooks({
+  light: {
+    or: [
+      "[data-theme='light'] &",
+      {
+        and: ["[data-theme='auto'] &", "@media (prefers-color-scheme: light)"],
+      },
+    ],
   },
-  debug: import.meta.env.DEV,
+  dark: {
+    or: [
+      "[data-theme='dark'] &",
+      {
+        and: ["[data-theme='auto'] &", "@media (prefers-color-scheme: dark)"],
+      },
+    ],
+  },
 });

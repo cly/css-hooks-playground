@@ -5,8 +5,6 @@ import "./App.css";
 import { css } from "./css.ts";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
       <div>
@@ -19,17 +17,38 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button
-          onClick={() => setCount((count) => count + 1)}
+        <div
           style={css({
-            transition: "transform 75ms",
-            on: ($) => [
-              $("&:active", {
-                transform: "scale(0.9)",
-              }),
-            ],
+            width: "200px",
+            height: "200px",
+            backgroundColor: "green",
           })}
-        ></button>
+        >
+          Should be green
+        </div>
+        <div
+          style={css({
+            width: "200px",
+            height: "200px",
+            backgroundColor: "green",
+            light: {
+              backgroundColor: "red",
+            },
+          })}
+        >
+          Should be red
+        </div>
+        <div
+          style={css({
+            width: "200px",
+            height: "200px",
+            light: {
+              backgroundColor: "red",
+            },
+          })}
+        >
+          Should be red
+        </div>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
